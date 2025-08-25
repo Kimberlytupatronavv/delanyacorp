@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delanya Corp</title>
+
+    <link rel="icon" type="img/png" href="static/img/imagenes_delanya/logo.png">
+    <link rel="stylesheet" href="static/css/picnic.css">
+    <link rel="stylesheet" href="static/css/aos.css">
+    <link rel="stylesheet" href="static/css/plyr.css">
+
+    <link rel="stylesheet" href="static/css/principal.css">
+    <link rel="stylesheet" href="static/css/styles_index.css">
+    <link rel="stylesheet" href="static/css/styles_conocenos.css">
+
+    <link rel="stylesheet" href="static/css/sectores/styles_globaltv.css">
+    <link rel="stylesheet" href="static/css/sectores/styles_agroecologia.css">
+    <style>
+
+        .background-container::before {
+            background-image: url("static/img/fondo.webp");
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="background-container"></div>
+    <div class="dark-overlay"></div>
+    <div class="glass-overlay"></div>
+
+    <main>
+        
+
+    <div class="logo-container">
+        <img src="static/img/imagenes_delanya/corporacion-delanya.png" 
+             alt="Logo de Delanya" 
+             class="logo-image">
+    </div>
+
+
+    <div class="lineas-simples">
+        <div class="linea-corta"></div>
+        
+        <div class="contenido-personalizado">
+            <!-- Nombre arriba -->
+            <div class="nombre-superior">
+                <h3 class="texto-nombre">Rodriguez Arciniegas Diego Fernando</h3>
+            </div>
+            
+            <!-- Contenedor de foto y texto -->
+             
+            <div class="contenedor-principal">
+                <!-- Foto a la izquierda -->
+                <div class="seccion-foto">
+                    <a href="https://www.facebook.com/capitandiegorodriguez" class="foto-enlace" target="_blank">
+                        <img src="static/img/conocenos/foto.jpg" 
+                            alt="Foto de retrato" 
+                            class="foto-retrato">
+                    </a>
+                </div>
+                
+                <!-- Texto a la derecha -->
+                <div class="seccion-texto">
+                    <p class="texto-descripcion">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="linea-larga"></div>
+    </div>
+
+    <div class="logo-container">
+        <img src="static/img/conocenos/quienes_somos.png" 
+             alt="Logo de Delanya" 
+             class="logo-image">
+    </div>
+
+
+
+    <div class="lineas-simples">
+        <div class="linea-corta"></div>
+        
+        <div class="contenido-central">
+            <p class="parrafo-elegante">
+                En Corporación Delanya creemos que el verdadero cambio empieza en las personas. 
+                Por eso, unimos diferentes áreas y talentos con un mismo propósito: mejorar vidas y 
+                abrir caminos hacia un futuro más justo, humano y sostenible. Nuestra esencia está en la 
+                innovación, la excelencia y, sobre todo, en el compromiso de acompañar a la sociedad en 
+                cada paso de su desarrollo.
+            </p>
+        </div>
+        
+        <div class="linea-larga"></div>
+    </div>
+
+
+
+
+    </main>
+
+    <footer>
+        <div class="social-container">
+            <a href="https://www.facebook.com/Msc.DiegoRodriguez" class="social-button" target="_blank">
+                <img src="static/img/logos_redes/logo_facebook.png" alt="Facebook">
+            </a>
+            <a href="mailto:delanya.org@gmail.com" class="social-button">
+                <img src="static/img/logos_redes/logo_gmail.png" alt="Gmail">
+            </a>
+            <a href="https://wa.me/593967381586" target="_blank" class="social-button">
+                <img src="static/img/logos_redes/logo_whatsapp.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.youtube.com/@coproraciondelanya" class="social-button" target="_blank">
+                <img src="static/img/logos_redes/logo_youtube.png" alt="Youtube">
+            </a>
+            <a href="https://www.tiktok.com/@corporaciondelanya" class="social-button" target="_blank">
+                <img src="static/img/logos_redes/logo_tiktok.png" alt="Tik Tok">
+            </a>
+
+        </div>
+    </footer>
+
+
+    <script src="static/js/htmx.min.js"></script>
+    <script src="static/js/aos.js"></script>
+    <script src="static/js/micromodal.min.js"></script>
+    <script src="static/js/plyr.polyfilled.js"></script>
+    
+    <script>
+
+        function resizeBackground() {
+            const elements = [
+                '.background-container',
+                '.dark-overlay', 
+                '.glass-overlay'
+            ];
+            
+            const body = document.body;
+            const html = document.documentElement;
+            const height = Math.max(
+                body.scrollHeight, 
+                body.offsetHeight, 
+                html.clientHeight, 
+                html.scrollHeight, 
+                html.offsetHeight
+            );
+            
+            elements.forEach(selector => {
+                const element = document.querySelector(selector);
+                if (element) {
+                    element.style.minHeight = height + 'px';
+                }
+            });
+        }
+        
+        
+        window.addEventListener('load', resizeBackground);
+        window.addEventListener('resize', resizeBackground);
+        window.addEventListener('scroll', resizeBackground);
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                delay: 200,
+                once: true,
+                offset: 100,
+                disable: function() {
+                    return window.innerWidth < 768;
+                }
+            });
+            
+            setTimeout(function() {
+                AOS.refresh();
+            }, 500);
+        });
+        
+        window.addEventListener('resize', function() {
+            AOS.refresh();
+        });
+        
+        document.body.addEventListener('htmx:afterSwap', function(evt) {
+            setTimeout(function() {
+                AOS.refresh();
+            }, 100);
+        });
+    </script>
+
+
+
+
+</body>
+</html>
