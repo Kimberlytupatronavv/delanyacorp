@@ -1,0 +1,351 @@
+.logo-delanya-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1rem;     
+    margin: 0.8rem 0;        
+    width: 100%;
+}
+
+.logo-delanya {
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.logo-delanya:hover {
+    transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+    .logo-delanya-container {
+        padding: 0.6rem 1rem;  
+        margin: 0.6rem 0;      
+    }
+    
+    .logo-delanya {
+        max-width: 130px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-delanya-container {
+        padding: 0.4rem 0.5rem; 
+        margin: 0.5rem 0;      
+    }
+    
+    .logo-delanya {
+        max-width: 100px;
+    }
+}
+
+.grid-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+.grid-videos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas fijas */
+    gap: 20px;
+    justify-content: center;
+}
+
+.video-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 100%; /* Mismo altura para todos */
+}
+
+.video-thumb-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Relación de aspecto fija */
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.video-info {
+    padding: 12px 5px 5px 5px;
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-start;
+}
+
+.video-title {
+    color: white;
+    font-family: 'Roboto', 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Efectos hover */
+.video-card:hover {
+    transform: translateY(-3px);
+}
+
+.video-card:hover .video-thumb {
+    transform: scale(1.05);
+}
+
+.video-card:hover .video-title {
+    color: #3ea6ff;
+}
+
+/* Responsive CORREGIDO */
+@media (max-width: 1024px) {
+    .grid-videos {
+        grid-template-columns: repeat(3, 1fr); /* Mantiene 3 columnas */
+        gap: 16px;
+    }
+    
+    .video-title {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-videos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-videos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        gap: 14px;
+    }
+    
+    .grid-container {
+        padding: 0.8rem;
+    }
+    
+    .video-title {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-videos {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+        gap: 12px;
+    }
+    
+    .video-info {
+        padding: 10px 3px 3px 3px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-videos {
+        grid-template-columns: 1fr; /* 1 COLUMNA en móvil */
+        gap: 16px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .video-thumb-container {
+        aspect-ratio: 16 / 9;
+    }
+    
+    .grid-container {
+        margin: 1rem auto;
+        padding: 0.5rem;
+    }
+    
+    .video-title {
+        font-size: 0.95rem;
+    }
+}
+
+/* Asegurar que todas las cards tengan la misma altura */
+.grid-videos {
+    align-items: start; /* Alinea todas al inicio */
+}
+
+.video-card {
+    height: auto;
+    min-height: 0;
+}
+
+/* Para pantallas muy grandes */
+@media (min-width: 1400px) {
+    .grid-videos {
+        grid-template-columns: repeat(4, 1fr); /* 4 columnas en pantallas grandes */
+    }
+}
+
+@media (min-width: 1800px) {
+    .grid-videos {
+        grid-template-columns: repeat(5, 1fr); /* 5 columnas en pantallas muy grandes */
+    }
+}
+
+.player-container {
+    width: 100%;
+    max-width: 854px; /* Ancho típico de YouTube */
+    height: 0;
+    padding-bottom: 56.25%; /* Relación de aspecto 16:9 (9/16 = 0.5625) */
+    position: relative;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.player-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsividad para diferentes tamaños de pantalla */
+@media (max-width: 900px) {
+    .player-container {
+        max-width: 90vw;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .player-container {
+        max-width: 95vw;
+        border-radius: 6px;
+    }
+    
+    /* Ajustar controles para móviles */
+    .plyr--video .plyr__controls {
+        padding: 10px;
+    }
+}
+
+/* Asegurar que el reproductor se vea bien en todos los dispositivos */
+.plyr {
+    border-radius: inherit;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Mejorar la visualización en pantallas pequeñas */
+@media (max-width: 400px) {
+    .plyr__controls .plyr__control {
+        padding: 5px;
+    }
+    
+    .plyr__time {
+        font-size: 12px;
+    }
+}
+
+.global-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    max-width: 400px;
+}
+
+.global-imagen {
+    flex-shrink: 0;
+    width: 120px;
+}
+
+.global-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+.global-texto h3 {
+    margin: 0;
+    font-size: 18px; /* tamaño aumentado */
+    font-weight: 700; /* negrita */
+    line-height: 1.3;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+}
+
+@media (max-width: 600px) {
+    .global-contenedor {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .global-imagen {
+        width: 100px;
+    }
+    
+    .global-texto h3 {
+        font-size: 16px; /* tamaño un poco menor en móvil */
+        font-weight: 700;
+        color: white;
+        font-family: "Times New Roman", Times, serif;
+    }
+}
+
+
+.cont-globaltv-desc {
+    font-family: 'Times New Roman', Times, serif;
+    background: rgba(255, 255, 255, 0.123);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    line-height: 1.6;
+    margin: 20px; /* Espacio entre el contenedor y el borde de la pantalla */
+    max-width: calc(100% - 40px); /* Asegura que no se salga de la pantalla con el margen */
+}
+
+.cont-globaltv-desc h1 {
+    text-align: center;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 15px;
+}
